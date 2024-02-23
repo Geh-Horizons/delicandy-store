@@ -1,6 +1,6 @@
 import { prismaClient } from "@/lib/prisma";
 
-import PageNews from "../homeNews/components/pageNews";
+import PageNews from "../homeNews/pageNews";
 import Categories from "./components/categories";
 import ProductList from "../../components/ui/product-list";
 

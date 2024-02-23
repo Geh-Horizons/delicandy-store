@@ -1,5 +1,6 @@
 import Footter from "@/components/ui/footter";
-import HeaderPage from "@/components/ui/header";
+import Header from "@/components/ui/header";
+import { cn } from "@/lib/utils";
 import AuthProvider from "@/provider/authProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -19,13 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br" >
-      <body className={inter.className}>
+      <body className={cn(inter.className, "")}>
         <AuthProvider>
-          <HeaderPage />
-          <div className="flex-1">{children}</div>
-          <Footter />
+          <Header/>
+          {children}      
         </AuthProvider>
-        
+         <Footter />
       </body>
     </html>
   );

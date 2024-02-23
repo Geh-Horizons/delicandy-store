@@ -1,4 +1,4 @@
-import { useSession } from "next-auth/react";
+/* import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
@@ -13,4 +13,4 @@ export const AuthAguard = ({children}: any) => {
   }, [status, data, router])
 
   return <div>{status === "authenticated" && data ? <>{children}</> : null}</div> 
-};
+}; */

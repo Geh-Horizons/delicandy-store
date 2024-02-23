@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts, env.d.ts",
     ".next/types/**/*.ts"
-, "prisma/seed.resd"  ],
+, "prisma/seed.resd", "src/provider/authAguard"  ],
   "exclude": [
     "node_modules"
   ]

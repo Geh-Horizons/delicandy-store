@@ -24,7 +24,7 @@ import {
   SheetTrigger,
 } from "./sheet";
 
-export default function HeaderPage() {
+export default function Header() {
   const [logado, setLogado] = useState("");
   const [count, setCount] = useState(0);
   const [logando, setLogando] = useState(false);
@@ -44,15 +44,15 @@ export default function HeaderPage() {
   });
 
   const handlerClickLogar = async () => {
-    await signIn();
+    await signIn("google");
   };
   const handleClickLogout = async () => {
     await signOut();
   };
 
   return (
-    <div
-      className={`w-full fixed flex justify-between p-5 items-center bg-slate-100 z-10 translate-all duration-300 ${scrolY > 50 ? "h-[25vh]" : "h-[20vh]"} backdro-filter backdrop-blur-sm bg-opacity-10 bg-orange-400 bg-clip-padding`}
+    <Card
+      className={`w-full flex justify-between p-5 items-center bg-slate-100 z-10 translate-all duration-300 ${scrolY > 50 ? "h-[25vh]" : "h-[20vh]"} backdro-filter backdrop-blur-sm bg-opacity-10 bg-orange-400 bg-clip-padding`}
     >
       <Sheet>
         <SheetTrigger asChild>
@@ -66,33 +66,33 @@ export default function HeaderPage() {
         >
           <SheetHeader className="flex flex-col w-full gap-1">
             <h1>MENU</h1>
-            
-              {status === "authenticated" && data?.user && (
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-2 py-4">
-                    <Avatar>
-                      <AvatarFallback>
-                        {data.user.name?.[0].toUpperCase()}
-                      </AvatarFallback>
-                      {data.user.image && (
-                        <AvatarImage
-                          src={data.user.image}
-                          className="w-10 rounded-full"
-                        />
-                      )}
-                    </Avatar>
 
-                    <div className="flex flex-col ">
-                      <p className="uppercase font-medium">{data.user.name} </p>
-                      <p className="font-sm opacity-75">Boas Compras!</p>
-                    </div>
+            {status === "authenticated" && data?.user && (
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 py-4">
+                  <Avatar>
+                    <AvatarFallback>
+                      {data.user.name?.[0].toUpperCase()}
+                    </AvatarFallback>
+                    {data.user.image && (
+                      <AvatarImage
+                        src={data.user.image}
+                        className="w-10 rounded-full"
+                      />
+                    )}
+                  </Avatar>
+
+                  <div className="flex flex-col items-start">
+                    <p className="uppercase font-medium">{data.user.name} </p>
+                    <p className="font-sm opacity-75">Boas Compras!</p>
                   </div>
                 </div>
-              )}
-            
+              </div>
+            )}
+
 
             <Link href={"/"}>
-              <Button className="w-full gap-2" asChild>
+              <Button className="w-full gap-2">
                 <div className="w-[100px] gap-2 flex items-center justify-left">
                   <Home size={18} /> HOME
                 </div>{" "}
@@ -103,7 +103,6 @@ export default function HeaderPage() {
               <Button
                 className="w-full gap-2 cursor-pointer"
                 onClick={handlerClickLogar}
-                asChild
               >
                 <div className="w-[100px] gap-2 flex items-center justify-left">
                   <LogInIcon size={18} /> LOGIN
@@ -113,24 +112,21 @@ export default function HeaderPage() {
 
             {status === "authenticated" && (
               <Button
-                className="w-full ga-2 cursor-pointer"
+                className="w-full gap-2 cursor-pointer"
                 onClick={handleClickLogout}
-                asChild
               >
                 <div className="w-[100px] gap-2 flex items-center justify-left">
                   <LogOutIcon size={18} /> LOGOUT
                 </div>
               </Button>
             )}
-
-            <Button className="w-full gap-2">
-              <Link href={"/trufas"} className="w-full">
+            <Link href={"/trufas"} className="w-full">
+              <Button className="w-full gap-2">
                 <div className="w-[100px] gap-2 flex items-center justify-left">
                   <BedDouble size={18} /> TRUFAS
                 </div>
-              </Link>
-            </Button>
-
+              </Button>
+            </Link>
             <Link href={"/cupcake"}>
               <Button className="w-full gap-2">
                 <div className="w-[100px] gap-2 flex items-center justify-left">
@@ -145,7 +141,7 @@ export default function HeaderPage() {
                 </div>
               </Button>
             </Link>
-            <SheetClose asChild>
+            
               <Link href={"/cadastro"}>
                 <Button className="w-full flex gap-2 justify-center items-center">
                   <div className="w-[100px] flex gap-2 items-center justify-left">
@@ -153,7 +149,7 @@ export default function HeaderPage() {
                   </div>
                 </Button>
               </Link>
-            </SheetClose>
+            
           </SheetHeader>
         </SheetContent>
       </Sheet>
@@ -186,6 +182,6 @@ export default function HeaderPage() {
           </SheetContent>
         </Sheet>
       </div>
-    </div>
+    </Card>
   );
 }
