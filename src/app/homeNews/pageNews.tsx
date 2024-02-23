@@ -1,15 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 import { prismaClient } from "@/lib/prisma";
+import { PrismaClient } from "@prisma/client";
 import { PlusCircleIcon } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 
-export default async function PageNews() {
-
-  const categorie = await prismaClient.category.findMany({})
+export default function PageNews() {
     
 
   return (

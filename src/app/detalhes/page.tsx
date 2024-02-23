@@ -2,6 +2,7 @@ import { prismaClient } from "@/lib/prisma";
 import Image from "next/image";
 
 export default async function PageDetalhes({ params }: any) {
+
   const category = await prismaClient.category.findMany({
     where: {
       slug: params.slug,
@@ -32,16 +33,16 @@ export default async function PageDetalhes({ params }: any) {
             >
               gourmet
             </p>
-            <div className="w-24 h-24 bg-black">
-<Image
-              src={product.imageUrl}
-              alt="banner"
-              width={100}
-              height={100}
-              quality="90"
-              priority={true}
-              className="w-[100px] rounded-full"
-            />
+            <div className="w-24 h-24 rounded-full overflow-hidden p-1">
+              <Image
+                src={product.imageUrl}
+                alt="banner"
+                width={100}
+                height={100}
+                quality="90"
+                priority={true}
+                className="w-[200px] rounded-full blur-0 hover:scale-150 hover:rotate-12 hover:duration-700"
+              />
             </div>
             
           </div>
@@ -49,9 +50,9 @@ export default async function PageDetalhes({ params }: any) {
       </div>
 
 
-      {/* <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center">
         <h1 className="font-bold">DETALHES: </h1>
-      </div> */}
+      </div>
     </div>
   );
 }

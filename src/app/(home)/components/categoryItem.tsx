@@ -1,6 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Category } from "@prisma/client";
 import { CakeIcon, Dessert, KeyboardIcon, PopcornIcon } from "lucide-react";
+import Link from "next/link";
+import { GiCupcake } from 'react-icons/gi'
 
 interface CategoryItemProps {
   category: Category;
@@ -8,19 +10,22 @@ interface CategoryItemProps {
 
 const CategoryItem = ({ category }: CategoryItemProps) => {
 
-    const categoryICON = {
-        cupcake: <Dessert size={22}/>,
-        bolo: <CakeIcon size={22}/>,
-        trufas: <PopcornIcon size={22}/>
-    }
+  const categoryICON = {
+    cupcake: <GiCupcake size={22} />,
+    bolo: <CakeIcon size={22} />,
+    trufas: <PopcornIcon size={22} />
+  }
 
 
   return (
-    <div className="flex items-center justify-center  w-[100px]">
-      <Badge className="flex items-center justify-center sm:w-[400px] w-[200px] gap-2 cursor-pointer outline">
-        {categoryICON[category.slug as keyof typeof categoryICON]}
-        <span className="text-lg font-bold">{category.name}</span>
-      </Badge>
+    <div className="flex items-center justify-center w-[100px]">
+      <Link href={`/category/${category.slug}`} >
+        <Badge className="flex items-center justify-center sm:w-[400px] w-[200px] gap-2 cursor-pointer outline">
+          {categoryICON[category.slug as keyof typeof categoryICON]}
+          <span className="text-lg font-bold">{category.name}</span>
+        </Badge>
+      </Link>
+
     </div>
   );
 };
