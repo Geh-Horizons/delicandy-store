@@ -1,6 +1,6 @@
-const CategoryPage = async ({params})  => {
+const CategoryPage = async ({params}: any)  => {
 
-  
+
 
   return (
     <div>
