@@ -52,7 +52,7 @@ export default function Header() {
 
   return (
     <Card
-      className={`w-full flex justify-between p-5 items-center bg-slate-100 z-10 translate-all duration-300 ${scrolY > 50 ? "h-[25vh]" : "h-[20vh]"} backdro-filter backdrop-blur-sm bg-opacity-10 bg-orange-400 bg-clip-padding`}
+      className={`w-full fixed flex justify-between p-5 items-center bg-slate-100 z-10 translate-all duration-300 ${scrolY > 50 ? "h-[25vh]" : "h-[20vh]"} backdro-filter backdrop-blur-sm bg-opacity-10 bg-orange-400 bg-clip-padding`}
     >
       <Sheet>
         <SheetTrigger asChild>
