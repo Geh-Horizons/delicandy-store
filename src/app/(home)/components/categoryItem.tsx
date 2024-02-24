@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Category } from "@prisma/client";
 import { CakeIcon, Dessert, KeyboardIcon, PopcornIcon } from "lucide-react";
 import Link from "next/link";
@@ -18,15 +19,19 @@ const CategoryItem = ({ category }: CategoryItemProps) => {
 
 
   return (
-    <div className="flex items-center justify-center w-[100px]">
-      <Link href={`/categoria/${category.slug}`} >
-        <Badge className="flex items-center justify-center sm:w-[400px] w-[200px] gap-2 cursor-pointer outline">
-          {CATEGORY_ICON[category.slug as keyof typeof CATEGORY_ICON]}
-          <span className="text-lg font-bold">{category.name}</span>
-        </Badge>
-      </Link>
+    <Link href={`/categoria/${category.slug}`} >
+      <Button className="flex items-center justify-center sm:w-[400px] w-[200px] gap-2 cursor-pointer outline">
+        <div className="flex min-w-[18%] items-center">
+          <div className="pr-3">
+            {CATEGORY_ICON[category.slug as keyof typeof CATEGORY_ICON]}
+          </div>
 
-    </div>
+          <div className="flex items-start uppercase">
+            <span className="text-lg font-bold">{category.name}</span>
+          </div>
+        </div>
+      </Button>
+    </Link>
   );
 };
 

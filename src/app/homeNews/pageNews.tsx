@@ -29,7 +29,6 @@ export default function PageNews() {
             <Button className="md:mb-0 mb-4 gap-4 text-left text-2xl w-full font-inter uppercase">
               Novidades <PlusCircleIcon />
             </Button>
-            <Categories/>
           </div>
         </div>
       </div>

@@ -1,15 +1,11 @@
 import { prismaClient } from "@/lib/prisma";
-
 import PageNews from "../homeNews/pageNews";
 import ProductList from "../../components/ui/product-list";
 import Categories from "./components/categories";
-import ProductItem from "@/components/ui/productItem";
-import { computerProductTotalPrice } from "@/helpers/products";
+
 
 
 export default async function Home() {
-
-  //const categorie = await prismaClient.category.findMany({})  
 
   const deals = await prismaClient.product.findMany({
     where: {
@@ -18,9 +14,6 @@ export default async function Home() {
       }
     }
   })
-  const categoriesProps = {
-  
-  }
 
   return (
     <div className="">

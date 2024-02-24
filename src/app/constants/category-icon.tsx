@@ -1,5 +1,8 @@
-import { GiCupcake } from 'react-icons/gi'
+import { CakeIcon, Dessert, Popcorn } from "lucide-react";
+
 
 export const CATEGORY_ICON = {
-    GiCupcake: <GiCupcake />
+    GiCupcake: <Popcorn />,
+    Sweet: <Dessert />,
+    Cake: <CakeIcon/>,
 } 
