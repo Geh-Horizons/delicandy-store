@@ -10,7 +10,7 @@ interface CategoryItemProps {
 
 const CategoryItem = ({ category }: CategoryItemProps) => {
 
-  const categoryICON = {
+  const CATEGORY_ICON = {
     cupcake: <GiCupcake size={22} />,
     bolo: <CakeIcon size={22} />,
     trufas: <PopcornIcon size={22} />
@@ -19,9 +19,9 @@ const CategoryItem = ({ category }: CategoryItemProps) => {
 
   return (
     <div className="flex items-center justify-center w-[100px]">
-      <Link href={`/category/${category.slug}`} >
+      <Link href={`/categoria/${category.slug}`} >
         <Badge className="flex items-center justify-center sm:w-[400px] w-[200px] gap-2 cursor-pointer outline">
-          {categoryICON[category.slug as keyof typeof categoryICON]}
+          {CATEGORY_ICON[category.slug as keyof typeof CATEGORY_ICON]}
           <span className="text-lg font-bold">{category.name}</span>
         </Badge>
       </Link>

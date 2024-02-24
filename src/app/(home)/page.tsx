@@ -3,6 +3,8 @@ import { prismaClient } from "@/lib/prisma";
 import PageNews from "../homeNews/pageNews";
 import ProductList from "../../components/ui/product-list";
 import Categories from "./components/categories";
+import ProductItem from "@/components/ui/productItem";
+import { computerProductTotalPrice } from "@/helpers/products";
 
 
 export default async function Home() {
@@ -21,7 +23,7 @@ export default async function Home() {
   }
 
   return (
-    <div className="h-[100vw]">
+    <div className="">
       <PageNews />
       <div className="mt-2 p-5">
         <Categories />

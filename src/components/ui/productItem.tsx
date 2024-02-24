@@ -1,10 +1,11 @@
+import { productWithTotalPrice } from "@/helpers/products";
 import { Product } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./button";
 
 interface ProductItemprops {
-  product: Product;
+  product: productWithTotalPrice;
 }
 
 const ProductItem = ({ product }: ProductItemprops) => {
